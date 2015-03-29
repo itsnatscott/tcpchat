@@ -1,3 +1,7 @@
-whats up?
-I'm fine
-tired of typing
+User1: /name/ Brian
+User3: /name/ Brewster
+User2: /name/ Scott
+Brian: Okay how we doing?
+Brewster: doing? fine
+Scott: Me too
+Brian: Selfish prig

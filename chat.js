@@ -14,13 +14,22 @@ server.on('connection', function(socket){
 	userName.push("User" + sockets.length)
 	console.log("connection established client:" + sockets.length);
 	console.log(userName);
-	socket.write("connection established " + userName[sockets.length-1] + " " + "\n" + log);
+	socket.write("Connection established " + userName[sockets.length-1] + " " + "\n" + log);
 
 
-//send recieve
+// recieve data
 	socket.on('data',function(data){
-	log =log + data.toString().trim()+"\n";
-		var writer = userName[sockets.indexOf(socket)]
+	var writer = userName[sockets.indexOf(socket)]
+	log =log + writer + ": " + data.toString().trim()+"\n";
+	
+			
+
+		//username change
+		var tempData = data.toString().trim();
+		var dataArray = tempData.split(" ");
+		if (dataArray[0]==="/name/"){userName[sockets.indexOf(socket)]= dataArray[1]};
+		
+		//send text
 		var clients = sockets.length;
 		for (var i=0;i<clients;i++){
 			if (sockets[i] != socket){

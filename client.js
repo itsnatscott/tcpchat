@@ -1,8 +1,7 @@
 var net = require('net');
-
+var fs = require('fs');
 var client = net.Socket();
 client.connect(3000, function() {
-  console.log('Connected to Server');
   client.write("");
   client.on('data', function(data){
     console.log(data.toString().trim());

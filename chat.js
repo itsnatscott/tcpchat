@@ -29,6 +29,7 @@ server.on('connection', function(socket){
 		var dataArray = tempData.split(" ");
 		if (dataArray[0]==="/name/"){userName[sockets.indexOf(socket)]= dataArray[1]};
 		
+		
 		//send text
 		var clients = sockets.length;
 		for (var i=0;i<clients;i++){

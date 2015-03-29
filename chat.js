@@ -5,13 +5,21 @@ var port = 3000
 var sockets = []
 var userName =[]
 var server = net.createServer();
-var log = "";
+var log = ""
+//read in archive
+fs.readFile ("chatLog.txt",function(err,data){
+	if(err){ console.log(err)}
+	else {log = data.toString()}
+});
+
+
+
 //connect
 server.on('connection', function(socket){
 	socket.setEncoding('utf8');
-	var j = sockets.length
-	sockets.push(socket)
-	userName.push("User" + sockets.length)
+	var j = sockets.length;
+	sockets.push(socket);
+	userName.push("User" + sockets.length);
 	console.log("connection established client:" + sockets.length);
 	console.log(userName);
 	socket.write("Connection established " + userName[sockets.length-1] + " " + "\n" + log);
@@ -19,8 +27,7 @@ server.on('connection', function(socket){
 
 // recieve data
 	socket.on('data',function(data){
-	var writer = userName[sockets.indexOf(socket)]
-	log =log + writer + ": " + data.toString().trim()+"\n";
+
 	
 			
 
@@ -28,7 +35,10 @@ server.on('connection', function(socket){
 		var tempData = data.toString().trim();
 		var dataArray = tempData.split(" ");
 		if (dataArray[0]==="/name/"){userName[sockets.indexOf(socket)]= dataArray[1]};
+		var writer = userName[sockets.indexOf(socket)];
 		
+		//logging operations
+		log =log + writer + ": " + data.toString().trim()+"\n";
 		
 		//send text
 		var clients = sockets.length;

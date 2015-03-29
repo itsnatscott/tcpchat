@@ -1,7 +1,11 @@
-User1: /name/ Brian
-User3: /name/ Brewster
-User2: /name/ Scott
-Brian: Okay how we doing?
-Brewster: doing? fine
-Scott: Me too
-Brian: Selfish prig
+User2: Anything?
+User1: Nope not here
+User1: NO
+User2: what?
+User1: Hey a log!
+User2: A log you say?
+Clarence: /name/ Clarence
+User1: slowdown
+sluggish: /name/ sluggish
+User1: Well them's the breaks!
+breakfish: /name/ breakfish
